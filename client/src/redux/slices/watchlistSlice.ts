@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+type Movie = {
+  id: number;
+  title: string;
+  watched: boolean;
+};
+
 interface WatchlistMovie {
   id: number;
   title: string;
@@ -8,12 +14,14 @@ interface WatchlistMovie {
 }
 
 interface WatchlistState {
+  movies: Movie[],
   watchlist: WatchlistMovie[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
 const initialState: WatchlistState = {
+  movies: [],
   watchlist: [],
   status: 'idle',
   error: null,
