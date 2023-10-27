@@ -1,10 +1,8 @@
-// src/redux/store.ts
-
 import { configureStore } from '@reduxjs/toolkit';
-import moviesReducer from './moviesSlice';
-import watchlistReducer from './watchlistSlice';
+import moviesReducer from './slices/moviesSlice';
+import watchlistReducer from './slices/watchlistSlice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     movies: moviesReducer,
     watchlist: watchlistReducer,
@@ -13,5 +11,3 @@ const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
-export default store;
